@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Linux</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <section id="boot" aria-label="System startup">
+        <div class="boot-mark"><span class="penguin">N</span></div>
+        <p class="boot-kicker">NOVA LINUX</p>
+        <h1>Welcome back, user</h1>
+        <div class="loader"><span></span></div>
+        <p class="boot-status">Starting your session...</p>
+    </section>
+
+    <main id="desktop">
+        <header class="topbar">
+            <button class="activities" id="activitiesButton">Activities</button>
+            <div class="topbar-center" id="topbarDate">Sunday, September 6</div>
+            <div class="system-tray"><span class="tray-icon">⌁</span><span class="tray-icon">◒</span><span class="tray-icon">▰</span><button class="status-button" id="quickSettingsButton"><span id="clock"></span><span>⌄</span></button></div>
+        </header>
+
+        <section class="workspace" id="workspace" aria-label="Desktop workspace">
+            <div class="desktop-label"><span class="status-dot"></span> Nova Workspace <span class="label-muted">/</span> Ready</div>
+            <div class="desktop-icons">
+                <button class="desktop-icon" data-open="files"><span class="icon-tile folder-icon">⌂</span><span>Home</span></button>
+                <button class="desktop-icon" data-open="terminal"><span class="icon-tile terminal-icon">›_</span><span>Terminal</span></button>
+                <button class="desktop-icon" data-open="about"><span class="icon-tile info-icon">i</span><span>About Nova</span></button>
+            </div>
+
+            <section class="window terminal-window" id="terminal" aria-label="Terminal window">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol terminal-symbol">›_</span><span>Terminal</span><span class="window-subtitle">user@nova</span></div><div class="window-actions"><button class="window-action minimize" aria-label="Minimize">−</button><button class="window-action maximize" aria-label="Maximize">□</button><button class="window-action close" data-close="terminal" aria-label="Close">×</button></div></div>
+                <div id="terminalOutput" class="terminal-output"><div class="terminal-welcome">Nova Shell 2.4.0 <span class="muted">•</span> Type <strong>help</strong> to see available commands.</div><div class="terminal-welcome muted">Last login: today on pts/0</div><br></div>
+                <div class="terminal-input"><span class="prompt">user@nova:<span id="pathLabel">~</span>$</span><input id="commandInput" autocomplete="off" spellcheck="false" aria-label="Terminal command"></div>
+            </section>
+
+            <section class="window file-window" id="files" aria-label="File manager">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol folder-symbol">⌂</span><span>Files</span></div><div class="window-actions"><button class="window-action minimize">−</button><button class="window-action maximize">□</button><button class="window-action close" data-close="files" aria-label="Close">×</button></div></div>
+                <div class="file-toolbar"><button class="toolbar-button">‹</button><button class="toolbar-button">›</button><span class="location">Home</span><button class="toolbar-button search-button">⌕</button></div>
+                <div class="file-body"><aside class="sidebar"><button class="side-link active" data-folder="~">⌂ <span>Home</span></button><button class="side-link" data-folder="Documents">▣ <span>Documents</span></button><button class="side-link" data-folder="Downloads">↓ <span>Downloads</span></button><button class="side-link" data-folder="Pictures">▧ <span>Pictures</span></button><div class="sidebar-rule"></div><button class="side-link" data-folder="~">▤ <span>Other Locations</span></button></aside><div class="file-grid" id="fileGrid"></div></div>
+            </section>
+
+            <section class="window document-window" id="documentPreview" aria-label="Document preview">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol info-symbol">TXT</span><span id="previewTitle">Document</span></div><div class="window-actions"><button class="window-action close" data-close="documentPreview" aria-label="Close">×</button></div></div>
+                <pre class="document-content" id="previewContent"></pre>
+                <div class="document-actions"><button class="primary-button" id="downloadDocument">Download</button><button class="secondary-button" data-close="documentPreview">Close</button></div>
+            </section>
+
+            <section class="window youtube-window" id="youtube" aria-label="YouTube">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol youtube-icon">▶</span><span>YouTube</span></div><div class="window-actions"><button class="window-action close" data-close="youtube" aria-label="Close">×</button></div></div>
+                <div class="browser-bar"><span>https://www.youtube.com</span><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">Open full YouTube ↗</a></div>
+                <iframe class="youtube-frame" src="https://www.youtube.com/embed/jNQXAC9IVRw" title="YouTube video" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+            </section>
+
+            <section class="window chrome-window" id="chrome" aria-label="Google Chrome">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol chrome-icon">◉</span><span>Google Chrome</span></div><div class="window-actions"><button class="window-action close" data-close="chrome" aria-label="Close">×</button></div></div>
+                <div class="browser-bar"><span>https://www.google.com</span><a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">Open in browser ↗</a></div>
+                <iframe class="chrome-frame" src="https://www.google.com/webhp?igu=1" title="Google Chrome" allow="fullscreen" allowfullscreen></iframe>
+            </section>
+
+            <section class="window game-window" id="game" aria-label="Games">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol game-icon">✦</span><span>Games</span></div><div class="window-actions"><button class="window-action close" data-close="game" aria-label="Close">×</button></div></div>
+                <div class="game-head"><div><strong id="gameTitle">Nova Mines</strong><span id="gameStatus">Find the safe cells.</span></div><div class="mine-counter" id="mineCounter">Mines: 5</div></div>
+                <div class="game-tabs"><button class="game-tab active" data-game-mode="mines">Mines</button><button class="game-tab" data-game-mode="clicker">Click Rush</button><button class="game-tab" data-game-mode="memory">Memory</button><button class="game-tab" data-game-mode="pacman">Pac-Man</button><button class="game-tab" data-game-mode="dash">Geometry Dash</button></div>
+                <div class="mine-grid" id="mineGrid" aria-label="Nova Mines board"></div>
+                <div class="mini-game-panel" id="clickerGame"><div class="click-score" id="clickScore">0</div><p>Click the star as many times as you can.</p><button class="click-target" id="clickTarget">✦</button></div>
+                <div class="mini-game-panel" id="memoryGame"><div class="memory-grid" id="memoryGrid"></div></div>
+                <div class="mini-game-panel" id="pacmanGame"><div class="pacman-hud"><span>SCORE <strong id="pacmanScore">0000</strong></span><span>HIGH SCORE <strong>2610</strong></span><span class="pacman-lives">●●●</span></div><div class="pacman-board" id="pacmanBoard"></div><p>Use the arrow keys to collect every dot.</p></div>
+                <div class="mini-game-panel" id="dashGame"><div class="dash-hud"><span>ATTEMPT <strong id="dashAttempt">1</strong></span><span>SCORE <strong id="dashScore">000</strong></span></div><div class="dash-track" id="dashTrack"><div class="dash-sky-star star-one">✦</div><div class="dash-sky-star star-two">·</div><div class="dash-sky-star star-three">✦</div><div class="dash-hill hill-one"></div><div class="dash-hill hill-two"></div><div class="dash-decor-block decor-one"></div><div class="dash-decor-block decor-two"></div><div class="dash-player" id="dashPlayer">◆</div><div class="dash-platform platform-one"></div><div class="dash-platform platform-two"></div><div class="dash-platform platform-three"></div><div id="dashSpikes"></div></div><p>Press Space, Arrow Up, or click to jump.</p></div>
+                <div class="game-footer"><span id="gameResult">Clear every safe cell to win.</span><button class="primary-button" id="resetGame">New game</button></div>
+            </section>
+
+            <section class="window about-window" id="about" aria-label="About Nova Linux">
+                <div class="window-titlebar"><div class="window-title"><span class="app-symbol info-symbol">i</span><span>About Nova</span></div><div class="window-actions"><button class="window-action close" data-close="about" aria-label="Close">×</button></div></div>
+                <div class="about-content"><div class="nova-logo">N</div><p class="eyebrow">A small, thoughtful system</p><h2>Nova Linux</h2><p class="about-copy">A browser-based Linux desktop made entirely in VS Code. Fast, friendly, and yours to explore.</p><div class="about-stats"><div><strong>2.4</strong><span>Shell version</span></div><div><strong>64-bit</strong><span>Architecture</span></div><div><strong>100%</strong><span>Browser native</span></div></div><button class="primary-button" data-close="about">Done</button></div>
+            </section>
+
+            <section class="quick-settings" id="quickSettings"><div class="quick-head"><strong>Quick Settings</strong><button data-close="quickSettings">×</button></div><div class="toggle-grid"><button class="toggle active"><span>⌁</span>Wi-Fi<i>NovaNet</i></button><button class="toggle active"><span>♧</span>Bluetooth<i>On</i></button><button class="toggle"><span>☾</span>Night Light<i>Off</i></button><button class="toggle"><span>✈</span>Airplane Mode<i>Off</i></button></div><div class="brightness"><span>☼</span><input type="range" min="20" max="100" value="78" aria-label="Brightness"><span>◐</span></div><div class="power-row"><span>🔋 78%</span><button id="lockButton">Lock</button><button id="rebootButton">Restart</button></div></section>
+
+            <div class="app-launcher" id="appLauncher"><div class="launcher-head"><span>Applications</span><button data-close="appLauncher">×</button></div><input class="app-search" placeholder="Search applications" aria-label="Search applications"><div class="app-grid"><button data-open="files"><span class="launcher-icon folder-icon">⌂</span>Files</button><button data-open="terminal"><span class="launcher-icon terminal-icon">›_</span>Terminal</button><button data-open="settings"><span class="launcher-icon settings-icon">⚙</span>Settings</button><button data-open="about"><span class="launcher-icon info-icon">i</span>About Nova</button><button data-open="youtube" aria-label="Open YouTube"><span class="launcher-icon youtube-icon">▶</span>YouTube</button><button data-open="chrome" aria-label="Open Google Chrome"><span class="launcher-icon chrome-icon">◉</span>Chrome</button><button data-open="game" aria-label="Open Nova Mines"><span class="launcher-icon game-icon">✦</span>Nova Mines</button><button data-open="game" data-game-mode="clicker" aria-label="Open Click Rush"><span class="launcher-icon clicker-icon">⚡</span>Click Rush</button><button data-open="game" data-game-mode="memory" aria-label="Open Memory Match"><span class="launcher-icon memory-icon">◆</span>Memory Match</button><button data-open="game" data-game-mode="pacman" aria-label="Open Pac-Man"><span class="launcher-icon pacman-icon">●</span>Pac-Man</button><button data-open="game" data-game-mode="dash" aria-label="Open Geometry Dash"><span class="launcher-icon dash-icon">◆</span>Geometry Dash</button></div></div>
+            <section class="window settings-window" id="settings"><div class="window-titlebar"><div class="window-title"><span class="app-symbol settings-symbol">⚙</span><span>Settings</span></div><div class="window-actions"><button class="window-action close" data-close="settings" aria-label="Close">×</button></div></div><div class="settings-body"><aside><button class="setting-tab active">Appearance</button><button class="setting-tab">Network</button><button class="setting-tab">Keyboard</button><button class="setting-tab">About</button></aside><div class="settings-content"><h2>Appearance</h2><p>Personalize your Nova workspace.</p><div class="setting-row"><span>Dark style<strong>Use a darker color scheme</strong></span><button class="switch active" aria-label="Toggle dark style"><i></i></button></div><div class="setting-row"><span>Accent color<strong>Choose your system accent</strong></span><div class="swatches"><i class="swatch coral active"></i><i class="swatch blue"></i><i class="swatch green"></i><i class="swatch gold"></i></div></div></div></div></section>
+        </section>
+
+        <nav class="dock" aria-label="Application dock"><button class="dock-button launcher-button" id="launcherButton" aria-label="Applications"><span class="nova-n">N</span></button><span class="dock-separator"></span><button class="dock-button" data-open="files" aria-label="Files"><span class="dock-icon folder-icon">⌂</span></button><button class="dock-button" data-open="terminal" aria-label="Terminal"><span class="dock-icon terminal-icon">›_</span></button><button class="dock-button" data-open="settings" aria-label="Settings"><span class="dock-icon settings-icon">⚙</span></button><span class="dock-separator"></span><button class="dock-button" id="trashButton" aria-label="Trash"><span class="dock-icon trash-icon">▱</span></button></nav>
+        <div class="toast" id="toast">Session locked</div>
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
